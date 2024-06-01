@@ -3,8 +3,8 @@ package objetos;
 import java.util.Objects;
 
 /**
- * Se crea la clase Nodo con las propiedades de IP_ADDRESS, MAC_ADDRESS, status y ubicacion.
- * las propiedades van a ser usadas por dos clases, Computadora y Router.
+ * Se crea la clase objetos.Nodo con las propiedades de IP_ADDRESS, MAC_ADDRESS, status y ubicacion.
+ * las propiedades van a ser usadas por dos clases, Computadora y objetos.Router.
  *
  * La clase es abstracta para que no se puedan instanciar objetos de esta clase.
  * */
@@ -80,7 +80,7 @@ public abstract class Nodo {
 
     @Override
     public String toString() {
-        return "Nodo{" +
+        return "objetos.Nodo{" +
                 "ID='" + ID + '\'' +
                 ", IP_ADDRESS=" + IP_ADDRESS +
                 ", MAC_ADDRESS=" + MAC_ADDRESS +

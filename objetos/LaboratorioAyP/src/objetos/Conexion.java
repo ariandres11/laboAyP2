@@ -87,7 +87,7 @@ public class Conexion {
 
     @Override
     public String toString() {
-        return "Conexion{" +
+        return "objetos.Conexion{" +
                 "sourceNode=" + sourceNode +
                 ", targetNode=" + targetNode +
                 ", tipoConexion='" + tipoConexion + '\'' +

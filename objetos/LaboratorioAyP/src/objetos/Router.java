@@ -10,7 +10,7 @@ public class Router extends Nodo {
     private String throughput;
 
     /**
-     * El super constructor de la clase, esto porque extiende de una clase abtracta Nodo.
+     * El super constructor de la clase, esto porque extiende de una clase abtracta objetos.Nodo.
      * Ademas se le pasan los atributos especificos de la clase.
      * */
     public Router(String id, int ip_address, int mac_address, String status, String ubicacion,
@@ -46,7 +46,7 @@ public class Router extends Nodo {
      * */
     @Override
     public String toString() {
-        return "Router{" +
+        return "objetos.Router{" +
                 "modelo='" + modelo + '\'' +
                 ", firmware='" + firmware + '\'' +
                 ", throughput='" + throughput + '\'' +
