@@ -1,7 +1,7 @@
 package objetos;
 
 public class Computadora extends Nodo {
-    String id;
+    private int id;
     int ip_adress;
     int mac_address;
     String status;
