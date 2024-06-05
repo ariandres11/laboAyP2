@@ -1,0 +1,5 @@
+Comp1;19216801;12345678;true;Aula 1;
+Comp2;19216802;23456789;false;Aula 2;
+Comp3;19216803;34567890;true;Laboratorio 1;
+Comp4;19216804;45678901;true;Aula 10;
+Comp5;19216805;56789012;false;Laboratorio 0;

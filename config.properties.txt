@@ -1,0 +1,7 @@
+#Archivos
+
+#Archivo de conexiones
+conexion=conexión.txt
+
+#Archivo de equipos
+equipo=equipo.txt
