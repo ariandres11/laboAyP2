@@ -14,10 +14,10 @@ public abstract class Nodo {
     /**
      * estos son los atributos de la clase.
      */
-    private String ID;
+    private String id;
     private int ipAddress;
     private int macAddress;
-    private String status;
+    private boolean status;
     private String ubicacion;
 
     /**
@@ -25,8 +25,8 @@ public abstract class Nodo {
      * al constructor se le deben pasar las propiedades de IP_ADDRESS, MAC_ADDRESS,
      * status y ubicacion.
      */
-    public Nodo(String id, int ipAddress, int macAddress, String status, String ubicacion) {
-        this.ID = id;
+    public Nodo(String id, int ipAddress, int macAddress, boolean status, String ubicacion) {
+        this.id = id;
         this.ipAddress = ipAddress;
         this.macAddress = macAddress;
         this.status = status;
@@ -38,11 +38,11 @@ public abstract class Nodo {
      * el get sirve para obtener el valor de la variable y el set sirve para cambiar el valor de la variable.
      * */
     public String getID() {
-        return ID;
+        return id;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setID(String id) {
+        this.id = id;
     }
 
     public int getIpAddress() {
@@ -61,11 +61,11 @@ public abstract class Nodo {
         this.macAddress = macAddress;
     }
 
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
@@ -93,7 +93,7 @@ public abstract class Nodo {
     @Override
     public String toString() {
         return "Nodo{" +
-                "ID='" + ID + '\'' +
+                "ID='" + id + '\'' +
                 ", ipAddress=" + ipAddress +
                 ", macAddress=" + macAddress +
                 ", status='" + status + '\'' +

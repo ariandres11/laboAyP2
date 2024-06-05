@@ -9,18 +9,18 @@ public class Router extends Nodo {
     private String firmware;
     private String throughput;
 
-    /**
-     * El super constructor de la clase, esto porque extiende de una clase abtracta objetos.Nodo.
-     * Ademas se le pasan los atributos especificos de la clase.
-     * */
-    public Router(String id, int ip_address, int mac_address, String status, String ubicacion,
-                  String modelo, String firmware, String throughput) {
-        super(id, ip_address, mac_address, status, ubicacion);
-
+    public Router(String id, int ipAddress, int macAddress, boolean status, String ubicacion, String modelo, String firmware, String throughput) {
+        super(id, ipAddress, macAddress, status, ubicacion);
         this.modelo = modelo;
         this.firmware = firmware;
         this.throughput = throughput;
     }
+
+    /**
+     * El super constructor de la clase, esto porque extiende de una clase abtracta objetos.Nodo.
+     * Ademas se le pasan los atributos especificos de la clase.
+     * */
+
 
     public String getModelo() {
         return modelo;
