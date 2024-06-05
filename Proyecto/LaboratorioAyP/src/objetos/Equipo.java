@@ -9,7 +9,7 @@ import java.util.Objects;
  * La clase es abstracta para que no se puedan instanciar objetos de esta clase.
  * */
 
-public abstract class Nodo {
+public abstract class Equipo {
 
     /**
      * estos son los atributos de la clase.
@@ -25,7 +25,7 @@ public abstract class Nodo {
      * al constructor se le deben pasar las propiedades de IP_ADDRESS, MAC_ADDRESS,
      * status y ubicacion.
      */
-    public Nodo(String id, int ipAddress, int macAddress, boolean status, String ubicacion) {
+    public Equipo(String id, int ipAddress, int macAddress, boolean status, String ubicacion) {
         this.id = id;
         this.ipAddress = ipAddress;
         this.macAddress = macAddress;
@@ -81,8 +81,8 @@ public abstract class Nodo {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Nodo nodo = (Nodo) o;
-        return ipAddress == nodo.ipAddress && macAddress == nodo.macAddress;
+        Equipo equipo = (Equipo) o;
+        return ipAddress == equipo.ipAddress && macAddress == equipo.macAddress;
     }
 
     @Override

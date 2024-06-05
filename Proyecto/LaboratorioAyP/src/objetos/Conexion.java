@@ -7,8 +7,8 @@ public class Conexion {
     /**
      * atributos de la clase
      * */
-    private Nodo sourceNode;
-    private Nodo targetNode;
+    private Equipo sourceNode;
+    private Equipo targetNode;
     private String tipoConexion;
     private String bandwidth;
     private int latencia;
@@ -18,7 +18,7 @@ public class Conexion {
     /**
      * Constructor de la clase
      * */
-    public Conexion(Nodo sourceNode, Nodo targetNode, String tipoConexion, String bandwidth,
+    public Conexion(Equipo sourceNode, Equipo targetNode, String tipoConexion, String bandwidth,
                     int latencia, String status, String errorRate) {
         this.sourceNode = sourceNode;
         this.targetNode = targetNode;
@@ -29,19 +29,19 @@ public class Conexion {
         this.errorRate = errorRate;
     }
 
-    public Nodo getSourceNode() {
+    public Equipo getSourceNode() {
         return sourceNode;
     }
 
-    public void setSourceNode(Nodo sourceNode) {
+    public void setSourceNode(Equipo sourceNode) {
         this.sourceNode = sourceNode;
     }
 
-    public Nodo getTargetNode() {
+    public Equipo getTargetNode() {
         return targetNode;
     }
 
-    public void setTargetNode(Nodo targetNode) {
+    public void setTargetNode(Equipo targetNode) {
         this.targetNode = targetNode;
     }
 

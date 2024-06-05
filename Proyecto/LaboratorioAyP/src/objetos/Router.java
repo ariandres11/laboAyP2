@@ -1,6 +1,6 @@
 package objetos;
 
-public class Router extends Nodo {
+public class Router extends Equipo {
 
     /**
      * estos son los atributos de la clase.
