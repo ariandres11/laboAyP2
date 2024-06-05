@@ -1,13 +1,13 @@
-package grafos;
+package aplicacion;
 
 import net.datastructures.AdjacencyMapGraph;
 import net.datastructures.Edge;
 import net.datastructures.Graph;
 import net.datastructures.Vertex;
-import objetos.Computadora;
-import objetos.Conexion;
-import objetos.Equipo;
-import objetos.Router;
+import modelo.Computadora;
+import modelo.Conexion;
+import modelo.Equipo;
+import modelo.Router;
 
 public class GrafosObjetos {
 
