@@ -11,25 +11,20 @@ import java.util.TreeMap;
 
 public class Datos {
 
-    public static TreeMap<String, Equipo> cargarEquipos(String fileName) throws FileNotFoundException {
+    public static TreeMap<String, Equipo> cargarEquipos(String fileComputadora, String fileRouter) throws FileNotFoundException {
+        TreeMap<String, Equipo> equipos = new TreeMap<>();
+        cargarComputadoras(fileComputadora, equipos);
+        cargarRouters(fileRouter, equipos);
 
-        if (fileName == "computadora.txt") {
-            return cargarComputadoras(fileName);
-        } else {
-            if (fileName == "router.txt") {
-                return cargarRouters(fileName);
-            }
-        }
+
        return null;
     }
 
 
 
-    public static TreeMap<String, Equipo> cargarComputadoras(String fileName) throws FileNotFoundException {
+    public static void cargarComputadoras(String fileName, TreeMap<String, Equipo> equipos) throws FileNotFoundException {
 
         Scanner read;
-
-        TreeMap<String, Equipo> computadoras = new TreeMap<String, Equipo>();
 
         read = new Scanner(new File(fileName));
         read.useDelimiter("\\s*;\\s*");
@@ -46,20 +41,17 @@ public class Datos {
             status = Boolean.parseBoolean(read.next());
             ubicacion = read.next();
 
-            computadoras.put(id, new Computadora(id, ipAddress, macAddress, status, ubicacion));
+            equipos.put(id, new Computadora(id, ipAddress, macAddress, status, ubicacion));
         }
 
         read.close();
 
-        return computadoras;
-
     }
 
-    public static TreeMap<String, Equipo> cargarRouters(String fileName) throws FileNotFoundException {
+    public static void cargarRouters(String fileName, TreeMap<String, Equipo> equipos) throws FileNotFoundException {
 
         Scanner read;
 
-        TreeMap<String, Equipo> routers = new TreeMap<String, Equipo>();
 
         read = new Scanner(new File(fileName));
         read.useDelimiter("\\s*;\\s*");
@@ -77,12 +69,10 @@ public class Datos {
             firmware = read.next();
             throughput = read.next();
 
-            routers.put(id, new Router(id, ipAddress, macAddress, status, ubicacion, modelo, firmware, throughput));
+            equipos.put(id, new Router(id, ipAddress, macAddress, status, ubicacion, modelo, firmware, throughput));
         }
 
         read.close();
-
-        return routers;
 
     }
 }
