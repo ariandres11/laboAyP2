@@ -8,7 +8,9 @@ import java.util.Properties;
 public class CargarParametros {
 
     private static String archivoConexion;
-    private static String archivoEquipo;
+    //private static String archivoEquipo;
+    private static String archivoComputadora;
+    private static String archivoRouter;
 
     public static void parametros() throws IOException{
 
@@ -17,7 +19,9 @@ public class CargarParametros {
         prop.load(input);
 
         archivoConexion = prop.getProperty("conexion");
-        archivoEquipo = prop.getProperty("equipo");
+        archivoComputadora = prop.getProperty("computadora");
+        archivoRouter = prop.getProperty("router");
+
 
 
     }
@@ -26,7 +30,16 @@ public class CargarParametros {
         return archivoConexion;
     }
 
-    public static String getArchivoEquipo() {
-        return archivoEquipo;
+    public static String getArchivoComputadora() {
+        return archivoComputadora;
     }
+
+    public static String getArchivoRouter() {
+        return archivoRouter;
+    }
+
+
+    /*public static String getArchivoEquipo() {
+        return archivoEquipo;
+    }*/
 }
