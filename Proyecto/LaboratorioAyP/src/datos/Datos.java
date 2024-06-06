@@ -46,7 +46,7 @@ public class Datos {
             status = Boolean.parseBoolean(read.next());
             ubicacion = read.next();
 
-            computadoras.put(id, new Computadora(id, ipAddress, macAddress, status, ubicacion);
+            computadoras.put(id, new Computadora(id, ipAddress, macAddress, status, ubicacion));
         }
 
         read.close();
@@ -77,7 +77,7 @@ public class Datos {
             firmware = read.next();
             throughput = read.next();
 
-            routers.put(id, new Router(id, ipAddress, macAddress, status, ubicacion, modelo, firmware, throughput);
+            routers.put(id, new Router(id, ipAddress, macAddress, status, ubicacion, modelo, firmware, throughput));
         }
 
         read.close();
