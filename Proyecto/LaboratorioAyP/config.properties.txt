@@ -3,5 +3,8 @@
 #Archivo de conexiones
 conexion=conexión.txt
 
-#Archivo de equipos
-equipo=equipo.txt
+#Archivo de computadora
+computadora=computadora.txt
+
+#Archivo de router
+router=router.txt
