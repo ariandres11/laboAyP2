@@ -19,28 +19,21 @@ public class TestCargarParametros {
 
     @BeforeEach
     void setUp(){
-        try{
-            CargarParametros.parametros();
-        }catch(IOException e){
-            System.err.print("Error en la carga de parametros");
-            System.exit(-1);
-        }
-
-        try{
-            Datos.cargarComputadoras(CargarParametros.getArchivoComputadora(), computadoras);
-
-            Datos.cargarRouters(CargarParametros.getArchivoRouter(), routers);
-
-        } catch (FileNotFoundException e) {
-            System.err.print("Error al cargar el archivo de datos");
-            System.exit(-1);
-        }
     }
 
     @Test
     void testCargarParametros(){
-        System.out.println(computadoras);
-        System.out.println(routers);
+        try{
+            CargarParametros.parametros();
+
+            System.out.println("Archivo Computadora: " + CargarParametros.getArchivoComputadora());
+            System.out.println("Archivo Router: " + CargarParametros.getArchivoRouter());
+            System.out.println("Archivo Conexion: " + CargarParametros.getArchivoConexion());
+
+        }catch(IOException e){
+            System.err.print("Error en la carga de parametros");
+            System.exit(-1);
+        }
     }
 
 

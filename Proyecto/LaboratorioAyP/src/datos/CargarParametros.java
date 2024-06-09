@@ -1,5 +1,6 @@
 package datos;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,15 +15,16 @@ public class CargarParametros {
     public static void parametros() throws IOException{
 
         Properties prop = new Properties();
-        InputStream input = new FileInputStream("config.properties");
-        prop.load(input);
-
-        archivoConexion = prop.getProperty("conexion");
-        archivoComputadora = prop.getProperty("computadora");
-        archivoRouter = prop.getProperty("router");
+        File archivo = new File("C:/Users/pcpro/Desktop/LaboAyP2/laboAyP2/Proyecto/LaboratorioAyP/config.properties.txt");
 
 
+        try (InputStream input = new FileInputStream(archivo)) {
+            prop.load(input);
 
+            archivoConexion = prop.getProperty("conexion");
+            archivoComputadora = prop.getProperty("computadora");
+            archivoRouter = prop.getProperty("router");
+        }
     }
 
     public static String getArchivoConexion() {

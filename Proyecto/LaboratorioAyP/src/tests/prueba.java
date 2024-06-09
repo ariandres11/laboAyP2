@@ -11,8 +11,12 @@ public class prueba {
             CargarParametros.parametros();
 
             System.out.println("Archivo Computadora: " + CargarParametros.getArchivoComputadora());
+            System.out.println("Archivo Router: " + CargarParametros.getArchivoRouter());
+            System.out.println("Archivo Conexion: " + CargarParametros.getArchivoConexion());
+
         }catch(IOException e){
-            System.err.print("Error en la carga de parametros");
+            System.err.print("Error en la carga de parametros" + e.getMessage());
+            e.printStackTrace();
             System.exit(-1);
         }
     }
