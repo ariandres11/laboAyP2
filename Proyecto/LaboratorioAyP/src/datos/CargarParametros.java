@@ -8,7 +8,6 @@ import java.util.Properties;
 public class CargarParametros {
 
     private static String archivoConexion;
-    //private static String archivoEquipo;
     private static String archivoComputadora;
     private static String archivoRouter;
 

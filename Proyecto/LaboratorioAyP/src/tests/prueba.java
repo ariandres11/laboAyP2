@@ -1,24 +1,19 @@
-package test;
+package tests;
 
 import datos.CargarParametros;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class TestCargarParametros {
+public class prueba {
+    public static void main(String[] args) {
 
-    @BeforeEach
-    void setUp(){
         try{
             CargarParametros.parametros();
+
+            System.out.println("Archivo Computadora: " + CargarParametros.getArchivoComputadora());
         }catch(IOException e){
             System.err.print("Error en la carga de parametros");
             System.exit(-1);
         }
     }
-
-
-
-
 }
