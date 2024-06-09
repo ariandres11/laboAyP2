@@ -1,15 +1,18 @@
 package datos;
 
 import modelo.Computadora;
+import modelo.Conexion;
 import modelo.Equipo;
 import modelo.Router;
+import net.datastructures.List;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-public class Datos {
+public class Dato {
 
     public static TreeMap<String, Equipo> cargarEquipos(String fileComputadora, String fileRouter) throws FileNotFoundException {
         TreeMap<String, Equipo> equipos = new TreeMap<>();
@@ -74,6 +77,26 @@ public class Datos {
         }
 
         read.close();
+
+    }
+
+    public static ArrayList cargarConexiones(String filename, TreeMap<String, Equipo> equipos ) throws FileNotFoundException {
+            Scanner read;
+            ArrayList<Conexion> conexiones = new ArrayList<Conexion>();
+            read = new Scanner(new File(filename));
+            read.useDelimiter("\\s*;\\s*");
+            Equipo v1, v2;
+            String velocidad;
+            int tiempo, tipo;
+            while (read.hasNext()) {
+                v1 = equipos.get(read.next());
+                v2 = equipos.get(read.next());
+                velocidad = read.next();
+                //conexiones.add(0, new Conexion(v1, v2, velocidad));
+            }
+            read.close();
+
+            return conexiones;
 
     }
 }

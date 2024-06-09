@@ -15,16 +15,13 @@ public class CargarParametros {
     public static void parametros() throws IOException{
 
         Properties prop = new Properties();
-        File archivo = new File("C:/Users/pcpro/Desktop/LaboAyP2/laboAyP2/Proyecto/LaboratorioAyP/config.properties.txt");
+        InputStream input = new FileInputStream("config.properties");
 
-
-        try (InputStream input = new FileInputStream(archivo)) {
             prop.load(input);
 
             archivoConexion = prop.getProperty("conexion");
             archivoComputadora = prop.getProperty("computadora");
             archivoRouter = prop.getProperty("router");
-        }
     }
 
     public static String getArchivoConexion() {

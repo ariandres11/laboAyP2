@@ -1,13 +1,11 @@
 package tests;
 
 import datos.CargarParametros;
-import datos.Datos;
 import modelo.Conexion;
 import modelo.Equipo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.TreeMap;
 
