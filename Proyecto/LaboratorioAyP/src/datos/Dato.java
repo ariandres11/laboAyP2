@@ -4,27 +4,25 @@ import modelo.Computadora;
 import modelo.Conexion;
 import modelo.Equipo;
 import modelo.Router;
+import net.datastructures.ArrayList;
 import net.datastructures.List;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeMap;
 
 public class Dato {
 
-    public static TreeMap<String, Equipo> cargarEquipos(String fileComputadora, String fileRouter) throws FileNotFoundException {
+    public static TreeMap<String, Equipo> cargarEquipos(String fileComputadora,
+                                                        String fileRouter) throws FileNotFoundException {
         TreeMap<String, Equipo> equipos = new TreeMap<>();
+
         cargarComputadoras(fileComputadora, equipos);
         cargarRouters(fileRouter, equipos);
 
-
-
-       return null;
+       return equipos;
     }
-
-
 
     public static void cargarComputadoras(String fileName, TreeMap<String, Equipo> equipos) throws FileNotFoundException {
 
@@ -80,25 +78,33 @@ public class Dato {
 
     }
 
-    public static ArrayList cargarConexiones(String filename, TreeMap<String, Equipo> equipos ) throws FileNotFoundException {
+    public static List<Conexion> cargarConexiones(String filename, TreeMap<String, Equipo> equipos ) throws FileNotFoundException {
             Scanner read;
-            ArrayList<Conexion> conexiones = new ArrayList<Conexion>();
+            List<Conexion> conexiones = new ArrayList<Conexion>();
             read = new Scanner(new File(filename));
             read.useDelimiter("\\s*;\\s*");
-            Equipo v1, v2;
-            String velocidad;
-            int tiempo, tipo;
+
+            Equipo sourceNode, targetNode;
+            String tipoConexion, bandwidth, status, errorRate;
+            int latencia;
+
             while (read.hasNext()) {
-                v1 = equipos.get(read.next());
-                v2 = equipos.get(read.next());
-                velocidad = read.next();
-                //conexiones.add(0, new Conexion(v1, v2, velocidad));
+                sourceNode = equipos.get(read.next());
+                targetNode = equipos.get(read.next());
+                tipoConexion = read.next();
+                bandwidth = read.next();
+                latencia = Integer.parseInt(read.next());
+                status = read.next();
+                errorRate = read.next();
+
+                if(sourceNode != null && targetNode != null){
+                    conexiones.add(0, new Conexion(sourceNode, targetNode, tipoConexion, bandwidth, latencia, status, errorRate));
+                }
+
             }
             read.close();
 
             return conexiones;
 
     }
-
-    //lol
 }

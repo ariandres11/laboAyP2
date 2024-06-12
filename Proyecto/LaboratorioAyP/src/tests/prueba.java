@@ -1,7 +1,7 @@
 package tests;
 
 import datos.CargarParametros;
-import datos.Datos;
+import datos.Dato;
 import modelo.Conexion;
 import modelo.Equipo;
 import net.datastructures.Entry;
@@ -33,12 +33,13 @@ public class prueba {
 
         try {
 
-            equipos = Datos.cargarEquipos(CargarParametros.getArchivoComputadora(), CargarParametros.getArchivoRouter());
-            conexiones = Datos.cargarConexiones(CargarParametros.getArchivoConexion(), equipos);
+            equipos = Dato.cargarEquipos(CargarParametros.getArchivoComputadora(), CargarParametros.getArchivoRouter());
+            conexiones = Dato.cargarConexiones(CargarParametros.getArchivoConexion(), equipos);
 
 
         } catch (FileNotFoundException e) {
             System.err.print("Error al cargar archivos de datos");
+            e.printStackTrace();
             System.exit(-1);
         }
 
