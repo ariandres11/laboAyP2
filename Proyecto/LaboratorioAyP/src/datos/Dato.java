@@ -34,7 +34,6 @@ public class Dato {
         int ipAddress, macAddress;
         boolean status;
 
-        //Si es router
 
         while (read.hasNext()) {
             id = read.next();
@@ -42,10 +41,11 @@ public class Dato {
             macAddress = Integer.parseInt(read.next());
             status = Boolean.parseBoolean(read.next());
             ubicacion = read.next();
+            //Crea un nuevo equipo Computadora y lo agrego al mapa de equipos
 
             equipos.put(id, new Computadora(id, ipAddress, macAddress, status, ubicacion));
         }
-
+        //Cierra el archivo
         read.close();
 
     }
@@ -71,6 +71,7 @@ public class Dato {
             firmware = read.next();
             throughput = read.next();
 
+            //Crea un nuevo equipo Router y lo agrego al mapa de equipos
             equipos.put(id, new Router(id, ipAddress, macAddress, status, ubicacion, modelo, firmware, throughput));
         }
 
@@ -129,8 +130,10 @@ public class Dato {
 
                 }
             }
+            //Cierra el archivo
             read.close();
 
+            //Retorna las conexiones en forma de lista
             return conexiones;
     }
 }
