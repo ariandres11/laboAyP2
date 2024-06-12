@@ -41,4 +41,10 @@ import java.util.TreeMap;
 
     //Para ver como quedo el grafo habilitar este metodo
     //public Graph<Equipo, Conexion> getGrafo(){ return sistema; }
+
+    public List<Conexion> caminoRapido(Equipo equipo1, Equipo equipo2) {
+
+
+                return null;
+    }
 }
