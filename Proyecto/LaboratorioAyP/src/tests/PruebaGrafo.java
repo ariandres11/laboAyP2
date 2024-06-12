@@ -1,23 +1,21 @@
-package aplicacion;
+package tests;
 
 import datos.CargarParametros;
 import datos.Dato;
-
-import modelo.Computadora;
+import logica.Calculo;
 import modelo.Conexion;
 import modelo.Equipo;
-import modelo.Router;
-import net.datastructures.List;
+import net.datastructures.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.TreeMap;
 
-public class Aplicacion {
+public class PruebaGrafo {
 
     public static void main(String[] args) {
 
-        TreeMap<String,Equipo> equipos = null;
+        TreeMap<String, Equipo> equipos = null;
         List<Conexion> conexiones = null;
 
         try{
@@ -39,10 +37,21 @@ public class Aplicacion {
             e.printStackTrace();
             System.exit(-1);
         }
+        /* PARA VER COMO QUEDO EL GRAFO ELIMINAR LOS ASTERICOS Y BARRAS
 
-        System.out.println("Todo bien"); //ELIMINAR DESPUES
+        Calculo calculo = new Calculo(equipos, conexiones);
+        Graph<Equipo, Conexion> sistema = new AdjacencyMapGraph<Equipo, Conexion>(false);
+        sistema = calculo.getGrafo();
 
+        System.out.println("Número de vértices: " + sistema.numVertices());
+        System.out.println("Número de arcos: " + sistema.numEdges());
 
+        for (Vertex<Equipo> vert : sistema.vertices())
+            System.out.println(vert.getElement());
 
+        for (Edge<Conexion> arc : sistema.edges())
+            System.out.println(arc.getElement());
+        */
     }
+
 }
