@@ -1,3 +1,5 @@
 Router1;Comp1;lan;bandwith;1;activo;errorRate;
 Router2;Comp2;lan;bandwith;1;activo;errorRate;
+Router3;Comp4;lan;bandwith;1;activo;errorRate;
+Comp1;Comp3;lan;bandwith;1;activo;errorRate;
 Router1;Comp4;lan;bandwith;1;activo;errorRate;

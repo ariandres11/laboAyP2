@@ -78,16 +78,31 @@ public class Dato {
 
     }
 
+    /**
+     * El metodo cargarConexiones se va a encargar de conectar un router con una computadora
+     * u otro router, una computadora no puede ser la salida(source) y no puede estar
+     * conectada a mas de 1 router.
+     *
+     * -Devuleve una lista de conexiones
+     * -El metodo pide que se le pase un string con el nombre del archivo al lerr y el arbol
+     * que contiene los equipos(routers y computadoras).
+     * */
     public static List<Conexion> cargarConexiones(String filename, TreeMap<String, Equipo> equipos ) throws FileNotFoundException {
+            //Cargar archivo y sus variables para la lectura con su delimitador
             Scanner read;
-            List<Conexion> conexiones = new ArrayList<Conexion>();
             read = new Scanner(new File(filename));
             read.useDelimiter("\\s*;\\s*");
 
+            List<Conexion> conexiones = new ArrayList<Conexion>(); //Lista de conexiones
+            TreeMap<String, Conexion> compConectadas = new TreeMap<>(); //Mapa de computadoras que SI estan conectadas
+
+
+            //Las variables que se utilizan para crear una conexion
             Equipo sourceNode, targetNode;
             String tipoConexion, bandwidth, status, errorRate;
             int latencia;
 
+            //Lee el archvio Conexiones.txt hasta el final
             while (read.hasNext()) {
                 sourceNode = equipos.get(read.next());
                 targetNode = equipos.get(read.next());
@@ -97,14 +112,25 @@ public class Dato {
                 status = read.next();
                 errorRate = read.next();
 
-                if(sourceNode != null && targetNode != null){
-                    conexiones.add(0, new Conexion(sourceNode, targetNode, tipoConexion, bandwidth, latencia, status, errorRate));
-                }
+                if(sourceNode != null && targetNode != null){ //Si los dos nodos existen
+                    if(!(sourceNode instanceof Computadora)){ //Si el source es un router
+                        if(targetNode instanceof Computadora){ //Si el target es una computadora
+                            if(!compConectadas.containsKey(targetNode.getID())){ //Si la computadora NO existe en el mapa de computadoras conectadas
+                                compConectadas.put(targetNode.getID(), null);
+                                conexiones.add(0, new Conexion(sourceNode, targetNode, tipoConexion, bandwidth, latencia, status, errorRate));
 
+                            }
+                        }
+                        else{ //Si el target es un router
+                            conexiones.add(0, new Conexion(sourceNode, targetNode, tipoConexion, bandwidth, latencia, status, errorRate));
+                        }
+
+                    }
+
+                }
             }
             read.close();
 
             return conexiones;
-
     }
 }
