@@ -4,12 +4,13 @@ import modelo.Computadora;
 import modelo.Conexion;
 import modelo.Equipo;
 import modelo.Router;
+import net.datastructures.List;
+import net.datastructures.SinglyLinkedList;
 import net.datastructures.TreeMap;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Dato {
@@ -88,13 +89,13 @@ public class Dato {
      * -El metodo pide que se le pase un string con el nombre del archivo al lerr y el arbol
      * que contiene los equipos(routers y computadoras).
      * */
-    public static List<Conexion> cargarConexiones(String filename, TreeMap<String, Equipo> equipos ) throws FileNotFoundException {
+    public static SinglyLinkedList<Conexion> cargarConexiones(String filename, TreeMap<String, Equipo> equipos ) throws FileNotFoundException {
             //Cargar archivo y sus variables para la lectura con su delimitador
             Scanner read;
             read = new Scanner(new File(filename));
             read.useDelimiter("\\s*;\\s*");
 
-            List<Conexion> conexiones = new ArrayList<Conexion>(); //Lista de conexiones
+            SinglyLinkedList<Conexion> conexiones = new SinglyLinkedList<>(); //Lista de conexiones
             TreeMap<String, Boolean> compConectadas = new TreeMap<>(); //Mapa de computadoras que SI estan conectadas
 
 
@@ -118,11 +119,11 @@ public class Dato {
                         if(targetNode instanceof Computadora){ //Si el target es una computadora
                             if(compConectadas.get(targetNode.getID()) == null){ //Si la computadora NO existe en el mapa de computadoras conectadas
                                 compConectadas.put(targetNode.getID(), true);
-                                conexiones.add(0, new Conexion(sourceNode, targetNode, tipoConexion, bandwidth, latencia, status, errorRate));
+                                conexiones.addLast( new Conexion(sourceNode, targetNode, tipoConexion, bandwidth, latencia, status, errorRate));
                             }
                         }
                         else{ //Si el target es un router
-                            conexiones.add(new Conexion(sourceNode, targetNode, tipoConexion, bandwidth, latencia, status, errorRate));
+                            conexiones.addLast(new Conexion(sourceNode, targetNode, tipoConexion, bandwidth, latencia, status, errorRate));
                         }
 
                     }
