@@ -7,11 +7,11 @@ import modelo.Computadora;
 import modelo.Conexion;
 import modelo.Equipo;
 import modelo.Router;
-import net.datastructures.List;
+import net.datastructures.TreeMap;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.TreeMap;
+import java.util.List;
 
 public class Aplicacion {
 

@@ -33,8 +33,8 @@ import java.util.ArrayList;
  * @author Michael H. Goldwasser
  */
 public class ProbeHashMap<K,V> extends AbstractHashMap<K,V> {
-  private AbstractMap.MapEntry<K,V>[] table;        // a fixed array of entries (all initially null)
-  private AbstractMap.MapEntry<K,V> DEFUNCT = new AbstractMap.MapEntry<>(null, null);   //sentinel
+  private MapEntry<K,V>[] table;        // a fixed array of entries (all initially null)
+  private MapEntry<K,V> DEFUNCT = new MapEntry<>(null, null);   //sentinel
 
   // provide same constructors as base class
   /** Creates a hash table with capacity 17 and prime factor 109345121. */
@@ -50,7 +50,7 @@ public class ProbeHashMap<K,V> extends AbstractHashMap<K,V> {
   @Override
   @SuppressWarnings({"unchecked"})
   protected void createTable() {
-    table = (AbstractMap.MapEntry<K,V>[]) new AbstractMap.MapEntry[capacity];   // safe cast
+    table = (MapEntry<K,V>[]) new MapEntry[capacity];   // safe cast
   }
 
   /** Returns true if location is either empty or the "defunct" sentinel. */
@@ -109,7 +109,7 @@ public class ProbeHashMap<K,V> extends AbstractHashMap<K,V> {
     int j = findSlot(h, k);
     if (j >= 0)                               // this key has an existing entry
       return table[j].setValue(v);
-    table[-(j+1)] = new AbstractMap.MapEntry<>(k, v);     // convert to proper index
+    table[-(j+1)] = new MapEntry<>(k, v);     // convert to proper index
     n++;
     return null;
   }

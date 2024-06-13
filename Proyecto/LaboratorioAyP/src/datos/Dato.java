@@ -4,13 +4,13 @@ import modelo.Computadora;
 import modelo.Conexion;
 import modelo.Equipo;
 import modelo.Router;
-import net.datastructures.ArrayList;
-import net.datastructures.List;
+import net.datastructures.TreeMap;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 public class Dato {
 
@@ -95,35 +95,34 @@ public class Dato {
             read.useDelimiter("\\s*;\\s*");
 
             List<Conexion> conexiones = new ArrayList<Conexion>(); //Lista de conexiones
-            TreeMap<String, Conexion> compConectadas = new TreeMap<>(); //Mapa de computadoras que SI estan conectadas
+            TreeMap<String, Boolean> compConectadas = new TreeMap<>(); //Mapa de computadoras que SI estan conectadas
 
 
             //Las variables que se utilizan para crear una conexion
             Equipo sourceNode, targetNode;
-            String tipoConexion, bandwidth, status, errorRate;
-            int latencia;
+            String tipoConexion, status, errorRate, latencia;
+            Double bandwidth;
 
             //Lee el archvio Conexiones.txt hasta el final
             while (read.hasNext()) {
                 sourceNode = equipos.get(read.next());
                 targetNode = equipos.get(read.next());
                 tipoConexion = read.next();
-                bandwidth = read.next();
-                latencia = Integer.parseInt(read.next());
+                bandwidth = read.nextDouble();
+                latencia = read.next();
                 status = read.next();
                 errorRate = read.next();
 
                 if(sourceNode != null && targetNode != null){ //Si los dos nodos existen
                     if(!(sourceNode instanceof Computadora)){ //Si el source es un router
                         if(targetNode instanceof Computadora){ //Si el target es una computadora
-                            if(!compConectadas.containsKey(targetNode.getID())){ //Si la computadora NO existe en el mapa de computadoras conectadas
-                                compConectadas.put(targetNode.getID(), null);
+                            if(compConectadas.get(targetNode.getID()) == null){ //Si la computadora NO existe en el mapa de computadoras conectadas
+                                compConectadas.put(targetNode.getID(), true);
                                 conexiones.add(0, new Conexion(sourceNode, targetNode, tipoConexion, bandwidth, latencia, status, errorRate));
-
                             }
                         }
                         else{ //Si el target es un router
-                            conexiones.add(0, new Conexion(sourceNode, targetNode, tipoConexion, bandwidth, latencia, status, errorRate));
+                            conexiones.add(new Conexion(sourceNode, targetNode, tipoConexion, bandwidth, latencia, status, errorRate));
                         }
 
                     }

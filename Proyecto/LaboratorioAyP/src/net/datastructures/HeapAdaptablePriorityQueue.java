@@ -36,7 +36,7 @@ public class HeapAdaptablePriorityQueue<K,V> extends HeapPriorityQueue<K,V>
 
   //---------------- nested AdaptablePQEntry class ----------------
   /** Extension of the PQEntry to include location information. */
-  protected static class AdaptablePQEntry<K,V> extends AbstractPriorityQueue.PQEntry<K,V> {
+  protected static class AdaptablePQEntry<K,V> extends PQEntry<K,V> {
     private int index;          // entry's current index within the heap
     public AdaptablePQEntry(K key, V value, int j) {
       super(key, value);        // this sets the key and value

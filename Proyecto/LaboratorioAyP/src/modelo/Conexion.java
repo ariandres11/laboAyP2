@@ -10,16 +10,16 @@ public class Conexion {
     private Equipo sourceNode;
     private Equipo targetNode;
     private String tipoConexion;
-    private String bandwidth;
-    private int latencia;
+    private Double bandwidth;
+    private String latencia;
     private String status;
     private String errorRate;
 
     /**
      * Constructor de la clase
      * */
-    public Conexion(Equipo sourceNode, Equipo targetNode, String tipoConexion, String bandwidth,
-                    int latencia, String status, String errorRate) {
+    public Conexion(Equipo sourceNode, Equipo targetNode, String tipoConexion, Double bandwidth,
+                    String latencia, String status, String errorRate) {
         this.sourceNode = sourceNode;
         this.targetNode = targetNode;
         this.tipoConexion = tipoConexion;
@@ -53,19 +53,19 @@ public class Conexion {
         this.tipoConexion = tipoConexion;
     }
 
-    public String getBandwidth() {
+    public Double getBandwidth() {
         return bandwidth;
     }
 
-    public void setBandwidth(String bandwidth) {
+    public void setBandwidth(Double bandwidth) {
         this.bandwidth = bandwidth;
     }
 
-    public int getLatencia() {
+    public String getLatencia() {
         return latencia;
     }
 
-    public void setLatencia(int latencia) {
+    public void setLatencia(String latencia) {
         this.latencia = latencia;
     }
 

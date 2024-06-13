@@ -23,8 +23,8 @@ package net.datastructures;
  */
 
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.HashSet;
 
 /**
  * A collection of graph algorithms.
@@ -294,4 +294,33 @@ public class GraphAlgorithms {
 
     return tree;
   }
+  
+  /**
+	 * Computes shortest-path distances from src vertex to target vertex of g.
+	 *
+	 * This implementation uses Dijkstra's algorithm and shortest-path tree retun a
+	 * Positional List of vertex
+	 *
+	 * The edge's element is assumed to be its integral weight.
+	 */
+	public static <V> PositionalList<Vertex<V>> shortestPathList(Graph<V, Integer> g, Vertex<V> src, Vertex<V> target) {
+
+		PositionalList<Vertex<V>> path = new LinkedPositionalList<>();
+		Map<Vertex<V>, Integer> res = GraphAlgorithms.shortestPathLengths(g, src);
+
+		Map<Vertex<V>, Edge<Integer>> tree;
+
+		tree = GraphAlgorithms.spTree(g, src, res);
+
+		Edge<Integer> arc;
+
+		while (target != src) {
+			path.addFirst(target);
+			arc = tree.get(target);
+			target = g.opposite(target, arc);
+		}
+		path.addFirst(src);
+
+		return path;
+	}
 }

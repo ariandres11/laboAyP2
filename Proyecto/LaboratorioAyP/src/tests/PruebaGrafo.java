@@ -5,11 +5,11 @@ import datos.Dato;
 import logica.Calculo;
 import modelo.Conexion;
 import modelo.Equipo;
-import net.datastructures.*;
+import net.datastructures.TreeMap;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.TreeMap;
+import java.util.List;
 
 public class PruebaGrafo {
 
@@ -37,21 +37,34 @@ public class PruebaGrafo {
             e.printStackTrace();
             System.exit(-1);
         }
-        /* PARA VER COMO QUEDO EL GRAFO ELIMINAR LOS ASTERICOS Y BARRAS
 
         Calculo calculo = new Calculo(equipos, conexiones);
-        Graph<Equipo, Conexion> sistema = new AdjacencyMapGraph<Equipo, Conexion>(false);
-        sistema = calculo.getGrafo();
 
-        System.out.println("Número de vértices: " + sistema.numVertices());
-        System.out.println("Número de arcos: " + sistema.numEdges());
+        Equipo e1 = equipos.get("Comp1");
+        Equipo e2 = equipos.get("Comp2");
 
-        for (Vertex<Equipo> vert : sistema.vertices())
-            System.out.println(vert.getElement());
+        if(e1 == null || e2 == null){
+            System.err.println("Uno de los dos equipos esta mal");
+            System.exit(-1);
+        }
 
-        for (Edge<Conexion> arc : sistema.edges())
-            System.out.println(arc.getElement());
-        */
+        List<Conexion> camino = calculo.caminoRapido(e1, e2);
+        System.out.println("Camino mas rapido de " + e1.getID() + " a " + e2.getID() + " es: ");
+        for(Conexion conexion : camino){
+            if(camino.getLast().equals(conexion)){
+                System.out.println(conexion.getSourceNode().getID() + "->" + conexion.getTargetNode().getID());
+            }
+            else{
+                System.out.print(conexion.getSourceNode().getID() + "->" + conexion.getTargetNode().getID() + "->");
+            }
+        }
+
+
     }
 
 }
+
+/*
+System.out.println(conexion.getSourceNode().getID() + "->" + conexion.getTargetNode().getID()
+                                + "| Ancho de banda: " + conexion.getBandwidth() + "Mbps.");
+*/

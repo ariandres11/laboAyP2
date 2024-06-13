@@ -1,3 +1,13 @@
-Router1;Comp1;lan;bandwith;1;activo;errorRate;
-Router2;Comp2;lan;bandwith;1;activo;errorRate;
-Router3;Comp4;lan;bandwith;1;activo;errorRate;
+Router1;Comp1;lan;20,0;100ms;activo;errorRate;
+Router2;Comp2;lan;40,0;30ms;activo;errorRate;
+Router3;Comp4;lan;200,0;10ms;activo;errorRate;
+Router3;Router4;lan;500,0;144ms;activo;errorRate;
+Router4;Comp3;lan;3,0;235ms;activo;errorRate;
+Router1;Comp5;lan;120,0;29ms;activo;errorRate;
+Router4;Router1;lan;90,0;77ms;activo;errorRate;
+Router2;Router3;lan;10,0;321ms;activo;errorRate;
+Router2;Router4;lan;140,0;40ms;activo;errorRate;
+Router4;Comp1;lan;20,0;100ms;activo;errorRate;
+Comp3;Comp2;lan;20,0;100ms;activo;errorRate;
+
+
